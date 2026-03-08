@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-surface-950 text-surface-100 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-600;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 
+           font-medium rounded-xl transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-offset-2 
+           focus:ring-offset-surface-900 disabled:opacity-50 
+           disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 
+           text-white hover:from-primary-500 hover:to-primary-400 
+           focus:ring-primary-500 shadow-lg shadow-primary-500/25
+           hover:shadow-xl hover:shadow-primary-500/30;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-800 text-surface-100 hover:bg-surface-700 
+           focus:ring-surface-500 border border-surface-700;
+  }
+
+  .btn-success {
+    @apply bg-gradient-to-r from-emerald-600 to-emerald-500 
+           text-white hover:from-emerald-500 hover:to-emerald-400 
+           focus:ring-emerald-500 shadow-lg shadow-emerald-500/25;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-rose-600 to-rose-500 
+           text-white hover:from-rose-500 hover:to-rose-400 
+           focus:ring-rose-500 shadow-lg shadow-rose-500/25;
+  }
+
+  .btn-warning {
+    @apply bg-gradient-to-r from-amber-600 to-amber-500 
+           text-white hover:from-amber-500 hover:to-amber-400 
+           focus:ring-amber-500 shadow-lg shadow-amber-500/25;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-surface-300 hover:text-white 
+           hover:bg-surface-800/50 focus:ring-surface-500;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 bg-surface-800/50 border border-surface-700 
+           rounded-xl text-surface-100 placeholder-surface-500
+           focus:outline-none focus:ring-2 focus:ring-primary-500/50 
+           focus:border-primary-500 transition-all duration-200;
+  }
+
+  .input-error {
+    @apply border-rose-500 focus:ring-rose-500/50 focus:border-rose-500;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-surface-300 mb-2;
+  }
+
+  .card {
+    @apply bg-surface-900/80 backdrop-blur-xl border border-surface-800 
+           rounded-2xl shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-card-hover hover:border-surface-700 
+           hover:translate-y-[-2px];
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 
+           rounded-2xl shadow-glass;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs 
+           font-semibold uppercase tracking-wider;
+  }
+
+  .badge-new {
+    @apply bg-blue-500/20 text-blue-300 border border-blue-500/30;
+  }
+
+  .badge-verified {
+    @apply bg-cyan-500/20 text-cyan-300 border border-cyan-500/30;
+  }
+
+  .badge-assigned {
+    @apply bg-violet-500/20 text-violet-300 border border-violet-500/30;
+  }
+
+  .badge-in-progress {
+    @apply bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-resolved {
+    @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30;
+  }
+
+  .badge-closed {
+    @apply bg-surface-500/20 text-surface-300 border border-surface-500/30;
+  }
+
+  .badge-rejected {
+    @apply bg-rose-500/20 text-rose-300 border border-rose-500/30;
+  }
+
+  .badge-reopened {
+    @apply bg-orange-500/20 text-orange-300 border border-orange-500/30;
+  }
+
+  .badge-p1 {
+    @apply bg-rose-500/20 text-rose-300 border border-rose-500/30;
+  }
+
+  .badge-p2 {
+    @apply bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-p3 {
+    @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30;
+  }
+
+  .sla-breached {
+    @apply bg-rose-500/20 text-rose-400 border border-rose-500/30;
+  }
+
+  .sla-critical {
+    @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
+  }
+
+  .sla-warning {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+  }
+
+  .sla-on-track {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+
+  /* Page container */
+  .page-container {
+    @apply min-h-screen bg-gradient-to-br from-surface-950 via-surface-900 to-surface-950;
+  }
+
+  /* Grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* Hero gradient orbs */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+.gradient-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #0c8ae7 0%, #06b6d4 100%);
+  top: -200px;
+  left: -200px;
+}
+
+.gradient-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(5deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-5deg);
+  }
+}
